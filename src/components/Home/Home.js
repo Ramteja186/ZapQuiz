@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './Home.css';
 
-function Home({ onStart }) {
+function Home({ onStart, showToast }) {
   const [topic, setTopic] = useState('');
 
   const handleStart = () => {
     if (topic) {
       onStart(topic);
+      showToast('Quiz started successfully!', 'success');
+    } else {
+      showToast('Please select a topic to start the quiz.', 'error');
     }
   };
 

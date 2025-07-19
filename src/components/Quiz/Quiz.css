@@ -1,14 +1,14 @@
-.quiz .timer {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.quiz .timer .fa-clock {
-  margin-right: 0.5rem;
-}
-
 .quiz .question-container {
   margin-bottom: 1rem;
+}
+
+.quiz {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 8px;
+  color: #f8fafc;
+  max-height: 80vh; /* Adjust as needed */
+  overflow-y: auto;
 }
 
 .quiz .options button {
@@ -21,8 +21,22 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: #38bdf8;
+  color: #0f172a;
 }
 
 .quiz .options button:hover {
-  background-color: #f0f0f0;
+  box-shadow: 0 0 10px #60a5fa;
+}
+
+.quiz .options button.correct {
+  background: #22c55e;
+}
+
+.quiz .options button.wrong {
+  background: #ef4444;
+}
+
+.quiz .timer.warning {
+  color: #f59e0b;
 }

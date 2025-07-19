@@ -1,3 +1,10 @@
+.home {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 8px;
+  color: #f8fafc;
+}
+
 .home select,
 .home button {
   display: block;
@@ -9,12 +16,12 @@
 }
 
 .home button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #38bdf8;
+  color: #0f172a;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .home button:hover {
-  background-color: #45a049;
+  box-shadow: 0 0 10px #60a5fa;
 }

@@ -3,14 +3,12 @@ import './Quiz.css';
 
 import { questions } from '../../data.js';
 
-function Quiz({ topic, onShowResult }) {
+function Quiz({ topic, onShowResult, onTimeUpdate }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(questions[topic].length * 10);
-
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prevTime) => {
+      onTimeUpdate((prevTime) => {
         if (prevTime === 1) {
           onShowResult(score);
           return 0;
@@ -19,7 +17,7 @@ function Quiz({ topic, onShowResult }) {
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [score, onShowResult]);
+  }, [score, onShowResult, onTimeUpdate]);
 
   const handleAnswer = (answer) => {
     if (answer === questions[topic][currentQuestion].answer) {
@@ -39,9 +37,6 @@ function Quiz({ topic, onShowResult }) {
   return (
     <div className="quiz">
       <h2>{topic.toUpperCase()} Quiz</h2>
-      <div className="timer">
-        <i className="fas fa-clock"></i> Time Left: {timeLeft}s
-      </div>
       <div className="question-container">
         <h3>{questions[topic][currentQuestion].question}</h3>
         <div className="options">
